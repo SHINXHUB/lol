@@ -2471,7 +2471,7 @@ end)
 
     local ToggleAutoFarmLevel = Tabs.Main:AddToggle("ToggleAutoFarmLevel", {Title = "ออโต้ ฟาร์ม เลเวล", Default = false })
     ToggleAutoFarmLevel:OnChanged(function(Value)
-        _G.AutoLevel = Value
+        _G.CakePrince = Value
     end)
     Options.ToggleAutoFarmLevel:SetValue(false)
         spawn(
