@@ -2469,11 +2469,13 @@ end)
         game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
     end
 
-    local ToggleAutoFarmLevel = Tabs.Main:AddToggle("ToggleAutoFarmLevel", {Title = "ออโต้ ฟาร์ม เลเวล", Default = false })
-    ToggleAutoFarmLevel:OnChanged(function(Value)
-        _G.CakePrince = Value
-    end)
-    Options.ToggleAutoFarmLevel:SetValue(false)
+        local ToggleCake = Tabs.Main:AddToggle("ToggleCake", {Title = "Auto Cake Prince", Default = false})
+        ToggleCake:OnChanged(
+            function(Value)
+                _G.CakePrince = Value
+            end
+        )
+        Options.ToggleCake:SetValue(false)
         spawn(
             function()
                 while wait() do
@@ -2574,11 +2576,15 @@ end)
             end
         )
 
-    local ToggleMobAura = Tabs.Main:AddToggle("ToggleMobAura", {Title = "ออโต้ เสก คาตาคุริ", Default = false })
-    ToggleMobAura:OnChanged(function(Value)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner", Value)
-    end)
-    Options.ToggleMobAura:SetValue(false)
+        local ToggleSpawnCake =
+            Tabs.Main:AddToggle("ToggleSpawnCake", {Title = "Auto Spawn Cake Prince", Default = true})
+        ToggleSpawnCake:OnChanged(
+            function(Value)
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner", Value)
+            end
+        )
+        Options.ToggleSpawnCake:SetValue(true)
+    end
 
     local ToggleMobAura = Tabs.Main:AddToggle("ToggleMobAura", {Title = "ฟาร์ม รอบๆ", Default = false })
     ToggleMobAura:OnChanged(function(Value)
